@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Getting source code'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Application Build Started'
+                echo 'Application Build Completed'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing Application'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Application Deployment Completed'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline Successfully Completed!'
+        }
+        failure {
+            echo 'Pipeline Failed!'
+        }
+    }
+}
